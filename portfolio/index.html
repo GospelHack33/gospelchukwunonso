@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gospel Chukwunonso</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Additional styles for animations and layout */
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .header {
+            background-color: #4b5563;
+            padding: 1rem;
+        }
+
+        .header a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .info {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .social i {
+            font-size: 30px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        #container-about {
+            padding: 50px;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        /* Add animation class */
+        .shake {
+            animation: shake 0.4s;
+        }
+
+        /* Define shake animation */
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            20%, 50%, 80% {
+                transform: translateX(-10px);
+            }
+            40%, 60% {
+                transform: translateX(10px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <center>
+            <a href="#" class="scroll-link" data-id="home">Home</a>
+            <a href="#about" class="scroll-link" data-id="about">About</a>
+            <a href="#contact" class="scroll-link" data-id="contact">Contact</a>
+        </center>
+    </div>
+
+    <div class="container" id="home">
+        <div class="info">
+            <pre>I'm Gospel Chukwunonso</pre>
+            <h1>I Learn, Build, Explore</h1>
+            <center>
+                <span>Welcome To My Digital Playground! I'm A Passionate Web Developer & Cybersecurity Specialist, Currently Immersed In The World <br> Of Penetration Testing. <br><b>Developer At Fickr</b></span>
+               
+                <pre style="margin-top: 10px;"><b id="visitorCount">0</b> Followers</pre>
+                <br>
+                 <script>
+        // Check if the unique identifier is stored in local storage
+        if (!localStorage.getItem('uniqueUserId')) {
+            // If not, generate a new unique identifier and store it
+            localStorage.setItem('uniqueUserId', generateUUID());
+        }
+
+        // Update the visitor count
+        updateVisitorCount();
+
+        function generateUUID() {
+            // Function to generate a simple UUID (not universally unique, but good enough for this example)
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                var r = Math.random() * 16 | 0,
+                    v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        function updateVisitorCount() {
+            // Get the current visitor count from local storage
+            var visitorCount = localStorage.getItem('visitorCount') || 0;
+
+            // Check if the user has not visited before in this browser
+            if (localStorage.getItem('lastVisitUserId') !== localStorage.getItem('uniqueUserId')) {
+                // Increment the visitor count
+                visitorCount++;
+                // Update the last visit user ID
+                localStorage.setItem('lastVisitUserId', localStorage.getItem('uniqueUserId'));
+            }
+
+            // Update the visitor count in the HTML
+            document.getElementById('visitorCount').textContent = visitorCount;
+
+            // Store the updated visitor count in local storage
+            localStorage.setItem('visitorCount', visitorCount);
+        }
+    </script>
+                <div class="social">
+                    <i class="fab fa-facebook" onclick="window.location.href='https://www.facebook.com/gospel.coding.43'"></i>
+                    <i class="fab fa-twitter" onclick="window.location.href='https://twitter.com/gospeldeveloper'"></i>
+                    <i class="fab fa-whatsapp" onclick="window.location.href='https://wa.me/09116101689'"></i>
+                </div>
+            </center>
+            <br>
+            <center>
+                <div class="contact-me">
+                    <a href="#contact"><button class="contact">Contact Me</button></a>
+                </div>
+            </center>
+        </div>
+    </div>
+
+    <div id="container-about">
+        <h1>Introducing Fickr</h1>
+        <br>
+        <center>
+            <span class="detail">Welcome To Fickr, Your One-Stop Solution For Convenient Mobile Top-Ups!<br><br>
+                <b><a href="https://fickr.vercel.app" style="text-decoration: none;color: purple;">SignUp Here</a></b>
+            </span>
+        </center>
+    </div>
+
+    <div id="container-about" style="">
+        <h1 id="about">About Me</h1>
+        <br>
+        <center>
+            <span class="detail">Hello, I'm Gospel Chukwunonso, A Dedicated Web Developer & A Cybersecurity Specialist, Currently Specializing In Penetration Testing, With A Track Record Of Creating Secure And Efficient Web Solutions, My Passion Lies In Securing Digital Landscapes And Devices Through Cybersecurity Practices. Let's Collaborate To Stand Against Potential Threats!.</span>
+        </center>
+    </div>
+<br>
+    <div id="container-about" style="margin-bottom: 19px;">
+        <h1 id="contact">Contact Me</h1>
+        <pre id="alert" style="color:red;text-align: center;margin-top: 10px;margin-bottom: 10px;"></pre>
+        <pre id="success" style="color:green;text-align: center;margin-top: 10px;margin-bottom: 10px;"></pre>
+        <div class="card-body">
+            <form id="signupForm" class="needs-validation" novalidate autocomplete="off">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="Enter your first name">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Enter your last name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email address">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="validateForm()">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <br>
+    <!-- Include Bootstrap and Tailwind CSS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Include Tailwind CSS JavaScript (for responsive classes) -->
+    
+<script type="text/javascript">
+	 function validateForm() {
+        var firstname = document.getElementById('firstName').value;
+        var lastname = document.getElementById('lastName').value;
+        var email = document.getElementById('email').value;
+       
+        if (email.trim() === '' || firstname.trim() === '' || lastname.trim() === '') {
+            // Add shake animation
+            document.getElementById('signupForm').classList.add('shake');
+
+            // Remove shake animation after it finishes
+            setTimeout(function () {
+                document.getElementById('signupForm').classList.remove('shake');
+            }, 400);
+            document.getElementById('alert').innerHTML = 'Please fill all required fields';
+            document.getElementById('firstName').style.border = "1px solid red";
+            document.getElementById('lastName').style.border = "1px solid red";
+            document.getElementById('email').style.border = "1px solid red";
+        } else {
+            // Form is valid, perform the desired action (e.g., submit the form)
+           
+            
+             document.getElementById('success').innerHTML = "Form has been submitted successfully";
+         
+            
+
+          }
+    };
+
+   
+</script>
+
+</body>
+</html>
