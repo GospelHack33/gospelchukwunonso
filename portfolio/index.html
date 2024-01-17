@@ -172,8 +172,8 @@
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'chukwunonsogospel4@gmail.com', // replace with your email address
-        pass: 'masterpc@1' // replace with your email password
+        user: '', // replace with your email address
+        pass: '' // replace with your email password
     }
 });
 
@@ -214,13 +214,18 @@ transporter.sendMail(mailOptions, (error, info) => {
             document.getElementById('firstName').style.border = "1px solid red";
             document.getElementById('lastName').style.border = "1px solid red";
             document.getElementById('email').style.border = "1px solid red";
+	document.getElementById('message').style.border = "1px solid red";
         } else {
             // Form is valid, perform the desired action (e.g., submit the form)
            
             
              document.getElementById('success').innerHTML = "Form has been submitted successfully";
-		sendMail();
+		
          
+            document.getElementById('firstName').value = '';
+            document.getElementById('lastName').value = '';
+            document.getElementById('email').value = '';
+		document.getElementById('message').value = '';
             
 
           }
