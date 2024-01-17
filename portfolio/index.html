@@ -148,6 +148,10 @@
                     <label for="email">Email Address</label>
                     <input type="email" class="form-control" id="email" placeholder="Enter your email address">
                 </div>
+		     <div class="form-group">
+                    <label for="email">Message</label>
+                    <input type="email" class="form-control" id="message" placeholder="Send a message">
+                </div>
                 <button type="button" class="btn btn-primary" onclick="validateForm()">Submit</button>
             </form>
         </div>
@@ -161,10 +165,42 @@
     <!-- Include Tailwind CSS JavaScript (for responsive classes) -->
     
 <script type="text/javascript">
+	function sendMail(){
+         const nodemailer = require('nodemailer');
+
+// Create a transporter with your email service provider's details
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'chukwunonsogospel4@gmail.com', // replace with your email address
+        pass: 'masterpc@1' // replace with your email password
+    }
+});
+
+// Email options
+const mailOptions = {
+    from: 'chukwunonsogospel4@gmail.com', // replace with your email address
+    to: document.getElementById('email').value, // replace with the recipient's email address
+    subject: 'Message From '+document.getElementById('firstName').value,
+    text: document.getElementById('message').value
+};
+
+// Send the email
+transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+        console.error('Error:', error.message);
+    } else {
+        console.log('Email sent:', info.response);
+    }
+});
+
+
+	}
 	 function validateForm() {
         var firstname = document.getElementById('firstName').value;
         var lastname = document.getElementById('lastName').value;
         var email = document.getElementById('email').value;
+        var message = document.getElementById('message').value;
        
         if (email.trim() === '' || firstname.trim() === '' || lastname.trim() === '') {
             // Add shake animation
@@ -183,6 +219,7 @@
            
             
              document.getElementById('success').innerHTML = "Form has been submitted successfully";
+		sendMail();
          
             
 
