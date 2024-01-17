@@ -80,46 +80,9 @@
             <center>
                 <span>Welcome To My Digital Playground! I'm A Passionate Web Developer & Cybersecurity Specialist, Currently Immersed In The World <br> Of Penetration Testing. <br><b>Developer At Fickr</b></span>
                
-                <pre style="margin-top: 10px;"><b id="visitorCount">0</b> Followers</pre>
+               
                 <br>
-                 <script>
-        // Check if the unique identifier is stored in local storage
-        if (!localStorage.getItem('uniqueUserId')) {
-            // If not, generate a new unique identifier and store it
-            localStorage.setItem('uniqueUserId', generateUUID());
-        }
-
-        // Update the visitor count
-        updateVisitorCount();
-
-        function generateUUID() {
-            // Function to generate a simple UUID (not universally unique, but good enough for this example)
-            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-                var r = Math.random() * 16 | 0,
-                    v = c === 'x' ? r : (r & 0x3 | 0x8);
-                return v.toString(16);
-            });
-        }
-
-        function updateVisitorCount() {
-            // Get the current visitor count from local storage
-            var visitorCount = localStorage.getItem('visitorCount') || 0;
-
-            // Check if the user has not visited before in this browser
-            if (localStorage.getItem('lastVisitUserId') !== localStorage.getItem('uniqueUserId')) {
-                // Increment the visitor count
-                visitorCount++;
-                // Update the last visit user ID
-                localStorage.setItem('lastVisitUserId', localStorage.getItem('uniqueUserId'));
-            }
-
-            // Update the visitor count in the HTML
-            document.getElementById('visitorCount').textContent = visitorCount;
-
-            // Store the updated visitor count in local storage
-            localStorage.setItem('visitorCount', visitorCount);
-        }
-    </script>
+                 
                 <div class="social">
                     <i class="fab fa-facebook" onclick="window.location.href='https://www.facebook.com/gospel.coding.43'"></i>
                     <i class="fab fa-twitter" onclick="window.location.href='https://twitter.com/gospeldeveloper'"></i>
